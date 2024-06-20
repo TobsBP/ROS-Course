@@ -7,7 +7,8 @@ using namespace std;
 int main() {
     list<int> numbers_list({1, 10, 100, 1000});
     list<string> vocals_list({"a", "e", "i", "o", "u"});
-
+    float position, goal;
+    
     for (int val : numbers_list)             // Loop
         cout << val << "  ";                 // Print function
     cout << endl;
@@ -15,6 +16,12 @@ int main() {
     for (string val : vocals_list)           // Loop
         cout << val << "  ";                 // Print function
     cout << endl;
+
+    while (position < goal) {
+        rosbot.move_forward();
+    }
+
+    stop_moving();
 
     return 0;
 }
