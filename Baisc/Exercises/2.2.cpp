@@ -10,20 +10,19 @@ int main(int argc, char **argv)
 
   RosbotClass rosbot;
 
-  rosbot.move_forward(5.0);
-
   float goal = 8.0;
+
+  rosbot.move_forward(5);
+
   float x = rosbot.get_position(1);
 
-  if (x <= goal)
+  while (x < goal)
   {
-    rosbot.move_forward(1);
-    rosbot.stop_moving();
+    rosbot.move_forward(1.0);
+    x += rosbot.get_position(1);
   }
-  else
-  {
-    rosbot.stop_moving();
-  }
+
+  rosbot.stop_moving();
 
   return 0;
 }

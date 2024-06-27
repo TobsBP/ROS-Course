@@ -7,10 +7,11 @@
 
 using namespace std;
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv)
+{
   ros::init(argc, argv, "rosbot_node");
 
-  map<float,double> data;
+  map<float, double> data;
   float x;
 
   RosbotClass rosbot;
@@ -22,9 +23,9 @@ int main(int argc, char **argv) {
     x = rosbot.get_position(1);
     data[rosbot.get_time()] = x;
   }
-  
+
   for (auto item : data)
-    ROS_INFO_STREAM( "Time: " << item.first << "and" << "Position " << item.second);
+    ROS_INFO_STREAM("Time: " << item.first << "and" << "Position " << item.second);
 
   return 0;
 }
